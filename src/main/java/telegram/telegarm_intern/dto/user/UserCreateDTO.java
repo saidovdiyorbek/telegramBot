@@ -1,4 +1,4 @@
-package telegram.telegarm_intern.dto;
+package telegram.telegarm_intern.dto.user;
 
 import telegram.telegarm_intern.enums.Role;
 
