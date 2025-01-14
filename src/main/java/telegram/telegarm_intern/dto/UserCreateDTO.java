@@ -1,4 +1,12 @@
 package telegram.telegarm_intern.dto;
 
-public record UserCreateDTO() {
+import telegram.telegarm_intern.enums.Role;
+
+public record UserCreateDTO(
+        String name,
+        String surname,
+        String username,
+        String password,
+        Role role
+) {
 }
