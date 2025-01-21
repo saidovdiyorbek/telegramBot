@@ -1,6 +1,7 @@
 package telegram.telegarm_intern.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,8 +14,8 @@ import telegram.telegarm_intern.service.UserService;
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
 public class UserController {
-
-    private final UserService service;
+    @Autowired
+    private UserService service;
 
     @PostMapping("")
     public ResponseEntity<?> create(@RequestBody UserCreateDTO user) {
