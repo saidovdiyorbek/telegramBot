@@ -1,5 +1,6 @@
 package telegram.telegarm_intern.handler;
 
+import jakarta.ws.rs.BadRequestException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,11 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 
     @ExceptionHandler(UsernameAlreadyExistsException.class)
     public ResponseEntity<?> exceptionHandler(UsernameAlreadyExistsException e){
+        return ResponseEntity.status(404).body(e.getMessage());
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<?> exceptionHandler(BadRequestException e){
         return ResponseEntity.status(404).body(e.getMessage());
     }
 }
