@@ -2,6 +2,7 @@ package telegram.telegarm_intern.service;
 
 import jakarta.ws.rs.BadRequestException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import telegram.telegarm_intern.dto.user.UserCreateDTO;
@@ -16,9 +17,10 @@ import static telegram.telegarm_intern.util.UserUtil.isValidPassword;
 @Service
 @RequiredArgsConstructor
 public class UserService {
-
-    private final UserRepository repository;
-    private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private UserRepository repository;
+    @Autowired
+    private  PasswordEncoder passwordEncoder;
 
 
 
