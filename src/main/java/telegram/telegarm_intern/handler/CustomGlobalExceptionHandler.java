@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+import telegram.telegarm_intern.exceptions.UserNotFoundException;
 import telegram.telegarm_intern.exceptions.UsernameAlreadyExistsException;
 
 import java.util.*;
@@ -42,6 +43,11 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<?> exceptionHandler(BadRequestException e){
+        return ResponseEntity.status(404).body(e.getMessage());
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> exceptionHandler(UserNotFoundException e){
         return ResponseEntity.status(404).body(e.getMessage());
     }
 }

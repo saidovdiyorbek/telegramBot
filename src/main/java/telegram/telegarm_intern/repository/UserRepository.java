@@ -7,4 +7,5 @@ import telegram.telegarm_intern.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     boolean existsByUsername(String username);
+
 }

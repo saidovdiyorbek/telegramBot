@@ -9,4 +9,10 @@ public record UserCreateDTO(
         String password,
         Role role
 ) {
+    public record UserResponse(
+            String name,
+            String surname,
+            String username,
+            Role role
+    ){}
 }
